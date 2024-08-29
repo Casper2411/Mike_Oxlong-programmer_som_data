@@ -4,6 +4,8 @@
 
 module Intro2
 
+    open System
+
 (* Association lists map object language variables to their values *)
 
     let env = [("a", 3); ("c", 78); ("baf", 666); ("b", 111)];;
@@ -55,11 +57,11 @@ module Intro2
         | Prim("max", e1, e2) ->
             let eval1 = eval e1 env
             let eval2 = eval e2 env
-            if eval1 > eval2 then eval1 else eval2
+            Math.Max(eval1, eval2)
         | Prim("min", e1, e2) ->
             let eval1 = eval e1 env
             let eval2 = eval e2 env
-            if eval1 < eval2 then eval1 else eval2
+            Math.Min(eval1, eval2)
         | Prim("==", e1, e2) ->
             if (eval e1 env) = (eval e2 env) then 1 else 0
         | Prim _            -> failwith "unknown primitive";;
@@ -76,8 +78,8 @@ module Intro2
                 | "+" -> i1 + i2
                 | "*" -> i1 * i2
                 | "-" -> i1 - i2
-                | "max" -> if i1 > i2 then i1 else i2
-                | "min" -> if i1 < i2 then i1 else i2
+                | "max" -> Math.Max(i1, i2)
+                | "min" -> Math.Min(i1, i2)
                 | "==" -> if i1 = i2 then 1 else 0
                 | _ -> failwith "unknown operator"
         | If(e1, e2, e3) ->
