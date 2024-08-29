@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "vLfcLcCYwhpYyRJMZsq8iTFel363P5hqgdM7fdG0Wos27EEuq8iUbnh/jtjDc4He04EFWTSxoV1mgEPhK1iIeA==",
+  "success": true,
+  "projectFilePath": "/Users/mathildegonzalez-knudsen/Desktop/Programmer som data/MikeOxlong-programmer-som-data/MikeOxlong-programmer-som-data/MikeOxlong-programmer-som-data.fsproj",
+  "expectedPackageFiles": [
+    "/Users/mathildegonzalez-knudsen/.nuget/packages/fsharp.core/7.0.400/fsharp.core.7.0.400.nupkg.sha512"
+  ],
+  "logs": []
+}
