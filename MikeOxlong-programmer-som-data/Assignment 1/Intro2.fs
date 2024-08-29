@@ -99,6 +99,53 @@ module Intro2
     
     let e8v = eval2 e8 env;;
     
+    //Exercise 1.2 (i), aexpr datatype
+    type aexpr =
+        | CstI of int
+        | Var of string
+        | Add of aexpr*aexpr
+        | Mul of aexpr*aexpr
+        | Sub of aexpr*aexpr;;
     
-   
-   
+    // Exercise 1.2 (ii)
+    // v - (w + z)
+    // Sub(Var "v", Add(Var "w", Var "z"))
+    
+    // 2 * (v - (w + z))
+    // Mul(CstI 2, (Sub(Var "v", Add(Var "w", Var "z")))
+    
+    // x + y + z + v
+    // Add(Var "x", Add(Var "y", Add(Var "z", Var "v")))
+    
+    // Exercise 1.2 (iii) Format function
+    let rec fmt (a:aexpr) :string =
+        match a with
+        | CstI i -> string i 
+        | Var s -> s
+        | Add(aexpr1, aexpr2) -> "(" + fmt aexpr1 + " + " + fmt aexpr2 + ")"
+        | Mul(aexpr1, aexpr2) -> "(" + fmt aexpr1 + " * " + fmt aexpr2 + ")"
+        | Sub(aexpr1, aexpr2) -> "(" + fmt aexpr1 + " - " + fmt aexpr2 + ")";;
+        
+    // Exercise 1.2 (iv) simplify function
+    let simplify (a:aexpr) :aexpr =
+        match a with
+        | Add(CstI 0, aexpr2) -> aexpr2
+        | Add(aexpr1, CstI 0) -> aexpr1
+        | Sub(aexpr1, CstI 0) -> aexpr1
+        | Mul(CstI 1, aexpr2) -> aexpr2
+        | Mul(aexpr1, CstI 1) -> aexpr1
+        | Mul(CstI 0, _) -> CstI 0
+        | Mul(_, CstI 0) -> CstI 0
+        | Sub(aexpr1, aexpr2) when aexpr1=aexpr2 -> CstI 0
+        | _ -> a;;
+      
+    // Exercise 1.2 (v) differentiate function   
+    let rec differentiate (a:aexpr) x =
+        match a with
+        | CstI _ -> CstI 0
+        | Var v when v=x -> CstI 1
+        | Var _ -> CstI 0
+        | Add(aexpr1, aexpr2) -> Add(differentiate aexpr1 x, differentiate aexpr2 x)
+        | Mul(aexpr1, aexpr2) -> Add(Mul(differentiate aexpr1 x, aexpr2), Mul(differentiate aexpr2 x, aexpr1))
+        | Sub(aexpr1, aexpr2) -> Sub(differentiate aexpr1 x, differentiate aexpr2 x);;
+        
