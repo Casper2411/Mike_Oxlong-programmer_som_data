@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ObjectOrientedExpressions
 {
@@ -22,11 +24,13 @@ namespace ObjectOrientedExpressions
     public abstract class AExpr
     {
         public abstract string toString();
+        abstract public int eval(Dictionary<string, int> env);
+        abstract public AExpr simplify();
     }
 
     public class CstI : AExpr
     {
-        protected int I;
+        public int I;
         public CstI(int i)
         {
             I = i;
@@ -36,11 +40,21 @@ namespace ObjectOrientedExpressions
         {
             return I.ToString();
         }
+
+        public override int eval(Dictionary<string, int> env)
+        {
+            return I;
+        }
+
+        public override AExpr simplify()
+        {
+            return new CstI(I);
+        }
     }
 
     public class Var : AExpr
     {
-        protected string Name;
+        public string Name;
 
         public Var(String name)
         {
@@ -51,14 +65,24 @@ namespace ObjectOrientedExpressions
         {
             return Name;
         }
+
+        public override int eval(Dictionary<string, int> env)
+        {
+            return env[Name];
+        }
+
+        public override AExpr simplify()
+        {
+            return new Var(Name);
+        }
     }
 
     public abstract class Binop : AExpr{}
 
     public class Add : Binop
     {
-        protected AExpr AExpr1;
-        protected AExpr AExpr2;
+        public AExpr AExpr1;
+        public AExpr AExpr2;
 
         public Add(AExpr aExpr1, AExpr aExpr2)
         {
@@ -68,14 +92,41 @@ namespace ObjectOrientedExpressions
 
         public override string toString()
         {
-            return AExpr1.toString() + " + " + AExpr2.toString();
+            return "(" + AExpr1.toString() + " + " + AExpr2.toString() + ")";
+        }
+
+        public override int eval(Dictionary<string, int> env)
+        {
+            return AExpr1.eval(env) + AExpr2.eval(env);
+        }
+
+        public override AExpr simplify()
+        {
+            if (AExpr1 is CstI)
+            {
+                CstI constant = AExpr1 as CstI;
+                if (constant.I == 0)
+                {
+                    return AExpr2;
+                }
+            }
+            else if (AExpr2 is CstI)
+            {
+                CstI constant = AExpr2 as CstI;
+                if (constant.I == 0)
+                {
+                    return AExpr1;
+                }
+            }
+
+            return new Add(AExpr1, AExpr2);
         }
     }
-    
+
     public class Sub : Binop
     {
-        protected AExpr AExpr1;
-        protected AExpr AExpr2;
+        public AExpr AExpr1;
+        public AExpr AExpr2;
 
         public Sub(AExpr aExpr1, AExpr aExpr2)
         {
@@ -85,14 +136,39 @@ namespace ObjectOrientedExpressions
         
         public override string toString()
         {
-            return AExpr1.toString() + " - " + AExpr2.toString();
+            return "(" + AExpr1.toString() + " - " + AExpr2.toString() + ")";
+        }
+        public override int eval(Dictionary<string, int> env)
+        {
+            return AExpr1.eval(env) - AExpr2.eval(env);
+        }
+
+        public override AExpr simplify()
+        {
+            if (AExpr2 is CstI)
+            {
+                CstI constant = AExpr2 as CstI;
+                if (constant.I == 0)
+                {
+                    return AExpr1;
+                }
+            } else if (AExpr1 is CstI && AExpr2 is CstI)
+            {
+                CstI constant1 = AExpr1 as CstI;
+                CstI constant2 = AExpr2 as CstI;
+                if (constant1 == constant2)
+                {
+                    return new CstI(0);
+                }
+            }
+            return new Sub(AExpr1, AExpr2);
         }
     }
     
     public class Mul : Binop
     {
-        protected AExpr AExpr1;
-        protected AExpr AExpr2;
+        public AExpr AExpr1;
+        public AExpr AExpr2;
 
         public Mul(AExpr aExpr1, AExpr aExpr2)
         {
@@ -102,7 +178,40 @@ namespace ObjectOrientedExpressions
         
         public override string toString()
         {
-            return AExpr1.toString() + " * " + AExpr2.toString();
+            return "(" + AExpr1.toString() + " * " + AExpr2.toString() + ")";
+        }
+        public override int eval(Dictionary<string, int> env)
+        {
+            return AExpr1.eval(env) * AExpr2.eval(env);
+        }
+
+        public override AExpr simplify()
+        {
+            if (AExpr1 is CstI)
+            {
+                CstI constant = AExpr1 as CstI;
+                if (constant.I == 1)
+                {
+                    return AExpr2;
+                } 
+                if (constant.I == 0)
+                {
+                    return new CstI(0);
+                }
+            } else if (AExpr2 is CstI)
+            {
+                CstI constant = AExpr2 as CstI;
+                if (constant.I == 1)
+                {
+                    return AExpr1;
+                } 
+                if (constant.I == 0)
+                {
+                    return new CstI(0);
+                }
+            }
+
+            return new Mul(AExpr1, AExpr2);
         }
     }
 }
