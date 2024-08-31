@@ -82,6 +82,7 @@ module Intro2
                 | "min" -> Math.Min(i1, i2)
                 | "==" -> if i1 = i2 then 1 else 0
                 | _ -> failwith "unknown operator"
+        //Exercise 1.1 (iv)
         | If(e1, e2, e3) ->
             let i1 = eval2 e1 env
             if i1 <> 0 then eval2 e2 env else eval2 e3 env;; 
