@@ -32,6 +32,8 @@ let e4 = Prim("+", Prim("+", CstI 20, Let(["z", CstI 17],
 let e5 = Prim("*", CstI 2, Let(["x", CstI 3], Prim("+", Var "x", CstI 4)));;
 
 
+let freex = Let(["y", CstI 6], Prim("+", Var "x", CstI 3));;
+
 (* ---------------------------------------------------------------------- *)
 
 (* Evaluation of expressions with variables and bindings *)
@@ -230,7 +232,6 @@ type texpr =                            (* target expressions *)
   | TLet of texpr * texpr               (* erhs and ebody                 *)
   | TPrim of string * texpr * texpr;;
 
-
 (* Map variable name to variable index at compile-time *)
 
 let rec getindex vs x = 
@@ -239,6 +240,9 @@ let rec getindex vs x =
     | y::yr -> if x=y then 0 else 1 + getindex yr x;;
 
 (* Compiling from expr to texpr *)
+
+let eksempel = Let(["x", CstI 2; "y", CstI 6], Prim("*", Var "x", Var "y"))
+let env = ["x"; "y"]
 
 let rec tcomp (e : expr) (cenv : string list) : texpr =
     match e with

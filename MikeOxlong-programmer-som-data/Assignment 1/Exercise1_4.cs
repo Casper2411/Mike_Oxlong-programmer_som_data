@@ -24,8 +24,8 @@ namespace ObjectOrientedExpressions
     public abstract class AExpr
     {
         public abstract string toString();
-        abstract public int eval(Dictionary<string, int> env);
-        abstract public AExpr simplify();
+        public abstract int eval(Dictionary<string, int> env);
+        public abstract AExpr simplify();
     }
 
     public class CstI : AExpr
@@ -35,12 +35,14 @@ namespace ObjectOrientedExpressions
         {
             I = i;
         }
+        
+        public void Deconstruct(out int i) => i = I;
 
         public override string toString()
         {
             return I.ToString();
         }
-
+        
         public override int eval(Dictionary<string, int> env)
         {
             return I;
@@ -52,14 +54,9 @@ namespace ObjectOrientedExpressions
         }
     }
 
-    public class Var : AExpr
+    public class Var(string name) : AExpr
     {
-        public string Name;
-
-        public Var(String name)
-        {
-            Name = name;
-        }
+        public string Name = name;
 
         public override string toString()
         {
@@ -77,18 +74,12 @@ namespace ObjectOrientedExpressions
         }
     }
 
-    public abstract class Binop : AExpr{}
+    public abstract class Binop : AExpr;
 
-    public class Add : Binop
+    public class Add(AExpr aExpr1, AExpr aExpr2) : Binop
     {
-        public AExpr AExpr1;
-        public AExpr AExpr2;
-
-        public Add(AExpr aExpr1, AExpr aExpr2)
-        {
-            AExpr1 = aExpr1;
-            AExpr2 = aExpr2;
-        }
+        public AExpr AExpr1 = aExpr1;
+        public AExpr AExpr2 = aExpr2;
 
         public override string toString()
         {
@@ -102,24 +93,12 @@ namespace ObjectOrientedExpressions
 
         public override AExpr simplify()
         {
-            if (AExpr1 is CstI)
+            return (AExpr1, AExpr2) switch
             {
-                CstI constant = AExpr1 as CstI;
-                if (constant.I == 0)
-                {
-                    return AExpr2;
-                }
-            }
-            else if (AExpr2 is CstI)
-            {
-                CstI constant = AExpr2 as CstI;
-                if (constant.I == 0)
-                {
-                    return AExpr1;
-                }
-            }
-
-            return new Add(AExpr1, AExpr2);
+                (CstI(0), _) => AExpr2,
+                (_, CstI(0)) => AExpr1,
+                _ => this,
+            };
         }
     }
 
@@ -145,23 +124,12 @@ namespace ObjectOrientedExpressions
 
         public override AExpr simplify()
         {
-            if (AExpr2 is CstI)
+            return (AExpr1, AExpr2) switch
             {
-                CstI constant = AExpr2 as CstI;
-                if (constant.I == 0)
-                {
-                    return AExpr1;
-                }
-            } else if (AExpr1 is CstI && AExpr2 is CstI)
-            {
-                CstI constant1 = AExpr1 as CstI;
-                CstI constant2 = AExpr2 as CstI;
-                if (constant1 == constant2)
-                {
-                    return new CstI(0);
-                }
-            }
-            return new Sub(AExpr1, AExpr2);
+                (_, CstI(0)) => AExpr1,
+                (CstI(var i1), AExpr2: CstI(var i2)) => i1 == i2 ? new CstI(0) : this,
+                _ => this,
+            };
         }
     }
     
@@ -187,31 +155,14 @@ namespace ObjectOrientedExpressions
 
         public override AExpr simplify()
         {
-            if (AExpr1 is CstI)
+            return (AExpr1, AExpr2) switch
             {
-                CstI constant = AExpr1 as CstI;
-                if (constant.I == 1)
-                {
-                    return AExpr2;
-                } 
-                if (constant.I == 0)
-                {
-                    return new CstI(0);
-                }
-            } else if (AExpr2 is CstI)
-            {
-                CstI constant = AExpr2 as CstI;
-                if (constant.I == 1)
-                {
-                    return AExpr1;
-                } 
-                if (constant.I == 0)
-                {
-                    return new CstI(0);
-                }
-            }
-
-            return new Mul(AExpr1, AExpr2);
+                (CstI(0) a,_) => a,
+                (CstI(1),_) => AExpr2,
+                (_, CstI(0) b) => b,
+                (_,CstI(1)) => AExpr1,
+                _ => this
+            };
         }
     }
 }

@@ -10,6 +10,7 @@
         <Compile Include="Assignment 1\Intro2.fs" />
         <Compile Include="Assignment 1\NewFile1.cs" />
         <Compile Include="Assignment 1\Intcomp1.fs" />
+        <Compile Include="Assignment 1\Exercise1_4.cs" />
     </ItemGroup>
 
 </Project>
