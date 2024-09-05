@@ -7,9 +7,9 @@ With these assumptions in mind, we have found the REG-EX:
 
 
 NFA:
-The NFA we have constructed is the picture in the folder, and the picture 
-is named: __________   
+From the REG-EX, we have constructed a NFA is the picture in the folder, 
+and the picture is named: NFA.jpg
 
 DFA:
 From the NFA we have constructed the corresponding DFA to this. This is the picture 
-in the folder, and the picture is named: __________ 
+in the folder, and the picture is named: DFA.jpg
