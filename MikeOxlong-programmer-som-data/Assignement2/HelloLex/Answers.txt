@@ -1,0 +1,36 @@
+
+Question 1:
+What are the regular expressions involved, and
+which semantic values are they associated with?
+-
+The REG-EX used in the file is ['0'-'9'], and the semantic values for these are the 
+numbers from 0 to 9(but only digit).
+
+--------------------------------------
+
+Question 2:
+Which additional file is generated during the process? 
+-
+hello.fs   and    hello.fsi
+
+How many states are there by the automaton of the lexer? 
+-
+3 states
+
+---------------------------------------
+
+Question 6:
+Explain why the results are expected behaviour from the lexer.
+-
+34 is recognized by the Lexer, because the REG-EX ends with " ['0'-'9']+ ", meaning there has to be 
+at least one number, and there can be multible numbers following this. 
+Everything before that in the REG-EX is optional, due to the questions mark Symbol.
+
+34.24 is recognized by the Lexer, because the regex starts with ['0'-'9']* meaning 0 or 
+more numbers and then a '.' has to follow. After the '.', there has to be one or more numbers
+following the '.', because of the " ['0'-'9']+ " clause. 
+
+34,34 is recognized as 34 by the lexer, because it does not recognize the comma as a 
+separator of two numbers. Only the '.' can be a separator. Therefore, this input is 
+recognized by the last part of the regex " ['0'-'9']+ " which can only read the first
+two numbers, and then it stops when it reaches the comma. 
