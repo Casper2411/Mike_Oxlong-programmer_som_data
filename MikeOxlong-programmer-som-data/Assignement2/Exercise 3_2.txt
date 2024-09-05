@@ -1,0 +1,15 @@
+REG EX:
+We have assumed that the empty string not is allowed, due to the 
+specification that it must consist of the letters A and B.
+
+With these assumptions in mind, we have found the REG-EX:
+(A?(B+A?)+)|A
+
+
+NFA:
+The NFA we have constructed is the picture in the folder, and the picture 
+is named: __________   
+
+DFA:
+From the NFA we have constructed the corresponding DFA to this. This is the picture 
+in the folder, and the picture is named: __________ 

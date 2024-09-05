@@ -334,7 +334,9 @@ let rec seval (inss : sinstr list) (stack : int list) =
     | (SSwap   :: insr, i2::i1::stkr) -> seval insr (i1::i2::stkr)
     | _ -> failwith "seval: too few operands on stack";;
 
-let sinstr2instr sinstr =
+
+(*Exercise 2.4*)
+let sinstrToInt sinstr =
     match sinstr with
     | SCstI _ -> 0
     | SVar _ -> 1
@@ -343,20 +345,17 @@ let sinstr2instr sinstr =
     | SMul -> 4
     | SPop -> 5
     | SSwap -> 6
-    
 
-let rec assembler inss =
-    let rec inner curr acc =
-        match curr with
-        | [] -> acc
-        | x::xs ->
-            let instr = sinstr2instr x
-            match x with
-            | SCstI i -> inner xs (instr::i::acc)
-            | SVar i -> inner xs (instr::i::acc)
-            | _ -> inner xs (instr::acc)
-    inner inss []
-        
+let assemble (lst:sinstr list) : int list =
+  ([], lst) ||> List.fold (fun acc curr -> 
+                                let theInt= sinstrToInt curr
+                                match curr with
+                                | SCstI v -> v :: theInt :: acc
+                                | SVar v       -> v :: theInt :: acc
+                                | _ -> theInt :: acc
+  ) |> List.rev;;
+
+
 (* A compile-time variable environment representing the state of
    the run-time stack. *)
 
