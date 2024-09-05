@@ -8,9 +8,12 @@
 
     <ItemGroup>
         <Compile Include="Assignment 1\Intro2.fs" />
-        <Compile Include="Assignment 1\NewFile1.cs" />
         <Compile Include="Assignment 1\Intcomp1.fs" />
         <Compile Include="Assignment 1\Exercise1_4.cs" />
+        <Compile Include="Assignement2\Intcomp1.fs" />
+        <Content Include="Assignement2\Machine.java" />
+        <Content Include="Assignement2\prog.ps" />
+        <Content Include="Assignement2\sierpinski.eps" />
     </ItemGroup>
 
 </Project>
