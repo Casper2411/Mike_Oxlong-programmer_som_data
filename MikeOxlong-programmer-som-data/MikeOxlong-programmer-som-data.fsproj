@@ -14,6 +14,21 @@
         <Content Include="Assignement2\Machine.java" />
         <Content Include="Assignement2\prog.ps" />
         <Content Include="Assignement2\sierpinski.eps" />
+        <Compile Include="Assignment3\Absyn.fs" />
+        <Compile Include="Assignment3\Expr.fs" />
+        <Content Include="Assignment3\ExprLex.fsl" />
+        <Content Include="Assignment3\ExprPar.fsy" />
+        <Content Include="Assignment3\README.TXT" />
+        <Compile Include="Assignment3\Parse.fs" />
+        <Compile Include="Assignment3\ExprLex.fs" />
+        <Compile Include="Assignment3\ExprLex.fsi" />
+        <Compile Include="Assignment3\ExprPar.fs" />
+        <Compile Include="Assignment3\ExprPar.fsi" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FsLexYacc" Version="11.3.0" />
+      <PackageReference Include="FsLexYacc.Runtime" Version="11.3.0" />
     </ItemGroup>
 
 </Project>
