@@ -333,3 +333,10 @@ let s3 = scomp e3 []
 let intsToFile (inss : int list) (fname : string) = 
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
+
+
+let compString (str : string) : sinstr list = 
+    let yeet = Parse.fromString str
+    scomp yeet [];;
+
+    
