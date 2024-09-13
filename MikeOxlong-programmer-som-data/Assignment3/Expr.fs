@@ -310,6 +310,10 @@ let rec scomp e (cenv : rtvalue list) : sinstr list =
       | Prim("*", e1, e2) -> 
             scomp e1 cenv @ scomp e2 (Intrm :: cenv) @ [SMul] 
       | Prim _ -> raise (Failure "scomp: unknown operator")
+      | If(expr, expr1, expr2) ->
+          if seval (scomp expr cenv) [] <> 0 then
+              scomp expr1 cenv
+          else scomp expr2 cenv
 
 let s1 = scomp e1 []
 let s2 = scomp e2 []
@@ -334,9 +338,5 @@ let intsToFile (inss : int list) (fname : string) =
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
 
-
-let compString (str : string) : sinstr list = 
-    let yeet = Parse.fromString str
-    scomp yeet [];;
-
-    
+let compString str =
+    scomp (Parse.fromString str) [];;
