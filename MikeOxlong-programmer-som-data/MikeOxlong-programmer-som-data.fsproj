@@ -19,11 +19,11 @@
         <Compile Include="Assignment3\ExprPar.fsi" />
         <Compile Include="Assignment3\ExprLex.fs" />
         <Compile Include="Assignment3\ExprLex.fsi" />
+        <Compile Include="Assignment3\Parse.fs" />
         <Compile Include="Assignment3\Expr.fs" />
         <Content Include="Assignment3\ExprLex.fsl" />
         <Content Include="Assignment3\ExprPar.fsy" />
         <Content Include="Assignment3\README.TXT" />
-        <Compile Include="Assignment3\Parse.fs" />
     </ItemGroup>
 
     <ItemGroup>
