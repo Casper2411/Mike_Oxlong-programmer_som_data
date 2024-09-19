@@ -82,6 +82,9 @@ let rec eval (e : expr) (env : (string * int) list) : int =
       | Prim("+", e1, e2) -> eval e1 env + eval e2 env
       | Prim("*", e1, e2) -> eval e1 env * eval e2 env
       | Prim("-", e1, e2) -> eval e1 env - eval e2 env
+      (*Exercise 3.5 | As per "Discussion Forum", thread "Assignment 3.7" from Niels's reply, 
+      we have implemented the IF statement in the eval function, and changed implemented it
+      in Absyn.fs, ExprLex.fsl and ExprPar.fsy. *)
       | If(expr, expr1, expr2) ->
           if eval expr env <> 0 then eval expr1 env
           else eval expr2 env
@@ -338,5 +341,6 @@ let intsToFile (inss : int list) (fname : string) =
     let text = String.concat " " (List.map string inss)
     System.IO.File.WriteAllText(fname, text);;
 
+(*Exercise 3.6*)
 let compString str =
     eval (Parse.fromString str) [];;
