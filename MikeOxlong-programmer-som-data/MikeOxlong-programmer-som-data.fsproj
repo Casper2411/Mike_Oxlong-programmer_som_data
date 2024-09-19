@@ -14,28 +14,6 @@
         <Content Include="Assignement2\Machine.java" />
         <Content Include="Assignement2\prog.ps" />
         <Content Include="Assignement2\sierpinski.eps" />
-        <Compile Include="Assignment3\Absyn.fs" />
-        <Compile Include="Assignment3\ExprPar.fs" />
-        <Compile Include="Assignment3\ExprPar.fsi" />
-        <Compile Include="Assignment3\ExprLex.fs" />
-        <Compile Include="Assignment3\ExprLex.fsi" />
-        <Compile Include="Assignment3\Parse.fs" />
-        <Compile Include="Assignment3\Expr.fs" />
-        <Content Include="Assignment3\ExprLex.fsl" />
-        <Content Include="Assignment3\ExprPar.fsy" />
-        <Content Include="Assignment3\README.TXT" />
-        <Content Include="Assignment4\FunPar.fsy" />
-        <Content Include="Assignment4\FunLex.fsl" />
-        <Compile Include="Assignment4\Absyn.fs" />
-        <Content Include="Assignment4\grammar.txt" />
-        <Content Include="Assignment4\README.TXT" />
-        <Compile Include="Assignment4\FunPar.fs" />
-        <Compile Include="Assignment4\FunPar.fsi" />
-        <Compile Include="Assignment4\FunLex.fs" />
-        <Compile Include="Assignment4\FunLex.fsi" />
-        <Compile Include="Assignment4\Parse.fs" />
-        <Compile Include="Assignment4\Fun.fs" />
-        <Compile Include="Assignment4\ParseAndRun.fs" />
     </ItemGroup>
 
     <ItemGroup>
