@@ -7,14 +7,14 @@ type token =
   | END
   | IN
   | LET
-  | IF
-  | THEN
-  | ELSE
   | PLUS
   | MINUS
   | TIMES
   | DIVIDE
   | EQ
+  | IF
+  | THEN
+  | ELSE
   | NAME of (string)
   | CSTINT of (int)
 type tokenId = 
@@ -24,14 +24,14 @@ type tokenId =
     | TOKEN_END
     | TOKEN_IN
     | TOKEN_LET
-    | TOKEN_IF
-    | TOKEN_THEN
-    | TOKEN_ELSE
     | TOKEN_PLUS
     | TOKEN_MINUS
     | TOKEN_TIMES
     | TOKEN_DIVIDE
     | TOKEN_EQ
+    | TOKEN_IF
+    | TOKEN_THEN
+    | TOKEN_ELSE
     | TOKEN_NAME
     | TOKEN_CSTINT
     | TOKEN_end_of_input

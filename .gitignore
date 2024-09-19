@@ -5,3 +5,4 @@ MikeOxlong-programmer-som-data/bin/
 *.cache
 */obj
 */bin
+*.user

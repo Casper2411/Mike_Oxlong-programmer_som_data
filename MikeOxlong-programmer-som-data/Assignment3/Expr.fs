@@ -82,6 +82,9 @@ let rec eval (e : expr) (env : (string * int) list) : int =
       | Prim("+", e1, e2) -> eval e1 env + eval e2 env
       | Prim("*", e1, e2) -> eval e1 env * eval e2 env
       | Prim("-", e1, e2) -> eval e1 env - eval e2 env
+      | If(expr, expr1, expr2) ->
+          if eval expr env <> 0 then eval expr1 env
+          else eval expr2 env
       | Prim _            -> raise (Failure "unknown primitive")
 
 (* Evaluate in empty environment: expression must have no free variables: *)
@@ -310,10 +313,7 @@ let rec scomp e (cenv : rtvalue list) : sinstr list =
       | Prim("*", e1, e2) -> 
             scomp e1 cenv @ scomp e2 (Intrm :: cenv) @ [SMul] 
       | Prim _ -> raise (Failure "scomp: unknown operator")
-      | If(expr, expr1, expr2) ->
-          if seval (scomp expr cenv) [] <> 0 then
-              scomp expr1 cenv
-          else scomp expr2 cenv
+      | _ -> raise (Failure "Instruction not supported")
 
 let s1 = scomp e1 []
 let s2 = scomp e2 []
@@ -339,4 +339,4 @@ let intsToFile (inss : int list) (fname : string) =
     System.IO.File.WriteAllText(fname, text);;
 
 let compString str =
-    scomp (Parse.fromString str) [];;
+    eval (Parse.fromString str) [];;
