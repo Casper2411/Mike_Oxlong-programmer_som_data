@@ -24,7 +24,6 @@
         <Content Include="Assignment3\ExprLex.fsl" />
         <Content Include="Assignment3\ExprPar.fsy" />
         <Content Include="Assignment3\README.TXT" />
-        <Compile Include="Assignment4\ParseAndRun.fs" />
         <Content Include="Assignment4\FunPar.fsy" />
         <Content Include="Assignment4\FunLex.fsl" />
         <Compile Include="Assignment4\Absyn.fs" />
@@ -36,6 +35,7 @@
         <Compile Include="Assignment4\FunLex.fsi" />
         <Compile Include="Assignment4\Parse.fs" />
         <Compile Include="Assignment4\Fun.fs" />
+        <Compile Include="Assignment4\ParseAndRun.fs" />
     </ItemGroup>
 
     <ItemGroup>
