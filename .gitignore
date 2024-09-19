@@ -2,3 +2,6 @@
 MikeOxlong-programmer-som-data/obj/
 MikeOxlong-programmer-som-data/bin/
 /.config
+*.cache
+*/obj
+*/bin
