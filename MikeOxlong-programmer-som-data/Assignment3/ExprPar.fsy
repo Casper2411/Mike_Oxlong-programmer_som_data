@@ -8,8 +8,9 @@
 
 %token <int> CSTINT
 %token <string> NAME
+%token IF THEN ELSE
 %token PLUS MINUS TIMES DIVIDE EQ
-%token END IN LET IF THEN ELSE
+%token END IN LET 
 %token LPAR RPAR
 %token EOF
 
