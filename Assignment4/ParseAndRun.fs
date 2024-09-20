@@ -25,10 +25,7 @@ let exPower38 =
 
 //Compute 3^0 + 3^1 + ··· + 3^10 + 3^11, using a recursive function (or two, if you prefer).
 let exPower311 =
-    run (
-        fromString
-            "let rightPower x = if x = 0 then 1 else 3 * rightPower (x-1) in let power y = if y = 0 then rightPower 0 else rightPower y + (power (y-1)) in power 11 end"
-    )
+    run (fromString "let rightPower x = if x = 0 then 1 else 3 * rightPower (x-1) in let power y = if y = 0 then rightPower 0 else rightPower y + (power (y-1)) in power 11 end end")
 (*
 Dette er opklarenende tekst til hvordan funktionen virker, så den er mere letlæselig:
 run (fromString "let rightPower x = 
@@ -44,10 +41,7 @@ run (fromString "let rightPower x =
 
 //Compute 1^8 + 2^8 + · · · + 10^8 , again using a recursive function (or two).
 let exPower108 =
-    run (
-        fromString
-            "let power8 n = n * n * n * n * n * n * n * n in let power y = if y = 1 then then power8 1 else rightPower y + (power (y-1)) in power 10 end"
-    )
+    run (fromString "let power8 n = n * n * n * n * n * n * n * n in let power y = if y = 1 then power8 1 else power8 y + (power (y-1)) in power 10 end end")
 (*
 Dette er opklarenende tekst til hvordan funktionen virker, så den er mere letlæselig:
 run (fromString "let power8 n = 
