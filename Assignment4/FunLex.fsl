@@ -55,6 +55,7 @@ rule Token = parse
   | '%'             { MOD }
   | '('             { LPAR }
   | ')'             { RPAR }
+    /*Exercise 4.5*/
   | "&&"            { AND }
   | "||"            { OR }
   | eof             { EOF }
