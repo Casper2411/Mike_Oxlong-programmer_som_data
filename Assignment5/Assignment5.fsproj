@@ -27,7 +27,7 @@
         <None Include="chap5.fsx" />
         <None Include="chap6.fsx" />
         <Compile Include="Exercise5_1_B.cs" />
-        <Compile Include="exercise5_1.fs" />
+        <Compile Include="exercise5_1_A.fs" />
     </ItemGroup>
 
     <ItemGroup>

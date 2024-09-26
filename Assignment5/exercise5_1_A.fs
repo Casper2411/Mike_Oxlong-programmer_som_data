@@ -1,4 +1,4 @@
-module Assignment4.exercise5_1
+module Assignment4.exercise5_1_A
 
 //Exercise 5.1.A
 let rec merge (pairOfLists: int list*int list) : int list =
