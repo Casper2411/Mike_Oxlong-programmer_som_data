@@ -27,7 +27,7 @@
 %start Main
 %type <Absyn.expr> Main Expr AtExpr Const
 %type <Absyn.expr> AppExpr
-%type <string list> Names
+%type <string list> Names     /*Exercise 3.3*/
 %type <Absyn.expr list> Exprs1
 
 %%
@@ -57,6 +57,7 @@ Expr:
   | Expr OR    Expr                     { If($1, CstB(true), $3)  }
 ;
 
+/* modified for Exercise 3.3 */
 AtExpr:
     Const                               { $1                     }
   | NAME                                { Var $1                 }
@@ -72,7 +73,7 @@ Names:
     | NAME Names { $1 :: $2 }
 ;
 
-
+/*modified for Exercise 3.3*/
 Exprs1:
      AtExpr           { [$1] }
      | AtExpr Exprs1  { $1::$2 }
