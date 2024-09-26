@@ -1,13 +1,13 @@
 {
  (* File Fun/Funlex.fsl 
     Lexer for a simple functional language (micro-ML) 
-    sestoft@itu.dk * 2010-01-02
+    sestoft@itu.dk * 2010-01-02, 2021-04-05
   *)
 
 module FunLex
 
 open FSharp.Text.Lexing
-open FunPar
+open FunPar;
 
 let lexemeAsString lexbuf = 
     LexBuffer<char>.LexemeString lexbuf
@@ -51,10 +51,12 @@ rule Token = parse
   | '+'             { PLUS }                     
   | '-'             { MINUS }                     
   | '*'             { TIMES }                     
-  | '/'             { DIV }                     
+  | '/'             { DIV }             
   | '%'             { MOD }
   | '('             { LPAR }
   | ')'             { RPAR }
+  | "&&"            { AND }
+  | "||"            { OR }
   | eof             { EOF }
   | _               { failwith "Lexer error: illegal symbol" }
 

@@ -48,11 +48,12 @@ let rec unique xs =
     | x::xr -> if mem x xr then unique xr else x :: unique xr;;
 
 (* A type is int, bool, function, or type variable: *)
-
+// Exercise 5.7
 type typ =
      | TypI                                (* integers                   *)
      | TypB                                (* booleans                   *)
      | TypF of typ * typ                   (* (argumenttype, resulttype) *)
+     | TypL of typ                          (* list, element type is typ *)
      | TypV of typevar                     (* type variable              *)
 
 and tyvarkind =  

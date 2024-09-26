@@ -32,7 +32,7 @@ let keyword s =
     | "true"  -> CSTBOOL true
     | _       -> NAME s
 }
-
+(*Modified to handle and & or*)
 rule Token = parse
   | [' ' '\t' '\r'] { Token lexbuf }
   | '\n'            { lexbuf.EndPos <- lexbuf.EndPos.NextLine; Token lexbuf }
@@ -55,7 +55,6 @@ rule Token = parse
   | '%'             { MOD }
   | '('             { LPAR }
   | ')'             { RPAR }
-    /*Exercise 4.5*/
   | "&&"            { AND }
   | "||"            { OR }
   | eof             { EOF }

@@ -9,8 +9,8 @@
         <Compile Include="Util.fs" />
         <Compile Include="Absyn.fs" />
         <Compile Include="Fun.fs" />
-        <Content Include="FunPar.fsy" />
         <Compile Include="FunPar.fsi" />
+        <Content Include="FunPar.fsy" />
         <Compile Include="FunLex.fsi" />
         <Content Include="FunLex.fsl" />
         <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
