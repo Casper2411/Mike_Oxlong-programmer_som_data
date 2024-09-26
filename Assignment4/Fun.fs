@@ -52,6 +52,7 @@ let rec eval (e : expr) (env : value env) : int =
       let b = eval e1 env
       if b<>0 then eval e2 env
       else eval e3 env
+    // Modified for exercise 4.3
     | Letfun(f, x, fBody, letBody) ->
       let bodyEnv = (f, Closure(f, x, fBody, env)) :: env 
       eval letBody bodyEnv
