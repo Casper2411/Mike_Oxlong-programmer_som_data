@@ -30,6 +30,8 @@ let rec lookup env x =
 type value = 
   | Int of int
   | Closure of string * string * expr * value env       (* (f, x, fBody, fDeclEnv) *)
+  //Added as part of exercise 6.2
+  | Clos of string * expr * value env (* (x, body, declEnv) *)
 
 let rec eval (e : expr) (env : value env) : value =
     match e with
@@ -65,7 +67,16 @@ let rec eval (e : expr) (env : value env) : value =
         let xVal = eval eArg env
         let fBodyEnv = (x, xVal) :: (f, fClosure) :: fDeclEnv
         in eval fBody fBodyEnv
-      | _ -> failwith "eval Call: not a function";;
+      //Added in exercise 6.2 
+      | Clos(x, body, declEnv) ->
+        let xVal = eval eArg env
+        let bodyEnv = (x, xVal) :: declEnv
+        in eval body bodyEnv
+      | _ -> failwith "eval Call: not a function"
+    //Added in exercise 6.2
+    | Fun(x, expr) ->
+        Clos(x, expr, env)
+        
 
 (* Evaluate in empty environment: program must have no free variables: *)
 
