@@ -53,7 +53,56 @@ inferType (fromString "let f x = let g y = if true then y else x in g false end 
 // Slide 13
 inferType (fromString "let x = 1 in x < 2 end");;
 inferType (fromString "let f x = 1 in f 2 + f false end");;
-inferType (fromString "let f x = 1 in f f end");
-;
+inferType (fromString "let f x = 1 in f f end");;
 // Slide 24
 slowTypeInferenceExample()
+
+
+//Exercise 6.5
+// Part 1
+// Works
+inferType (fromString "let f x = 1 in f f end");;
+
+// f is expecting an argument but gets none?
+inferType (fromString "let f g = g g in f end");;
+
+
+inferType (fromString "
+           let f x =
+                let g y = y
+                in g false end
+           in f 42 end");;
+inferType (fromString "
+           let f x =
+                let g y = if true then y else x
+                in g false in
+           f 42 end");;
+inferType (fromString "
+           let f x =
+                let g y = if true then y else x
+                in g false end
+           in f true end");;
+// Part 2
+inferType (fromString "let f x = if x then true else false in f end");;
+inferType (fromString "let f x = x+x in f end");;
+inferType (fromString "
+           let f x =
+                let g y = y+x
+                in g end
+           in f end");;
+inferType (fromString "
+           let f x =
+                let g y = x
+                in g end
+           in f end");;
+inferType (fromString "
+           let f x =
+                let g y = y
+                in g end
+           in f end");;
+
+inferType (fromString "let f = 42 in f end");;
+
+
+
+

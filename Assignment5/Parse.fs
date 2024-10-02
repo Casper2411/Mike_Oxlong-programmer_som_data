@@ -5,14 +5,14 @@ module Parse
 open System
 open System.IO
 open System.Text
-open (*Microsoft.*)FSharp.Text.Lexing
+open FSharp.Text.Lexing
 open Absyn
 
 (* Plain parsing from a string, with poor error reporting *)
 
 let fromString (str : string) : expr =
     let lexbuf = (*Lexing. insert if using old PowerPack *)LexBuffer<char>.FromString(str)
-    try 
+    try
       FunPar.Main FunLex.Token lexbuf
     with 
       | exn -> let pos = lexbuf.EndPos 

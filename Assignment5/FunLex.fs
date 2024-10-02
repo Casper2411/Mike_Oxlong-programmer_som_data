@@ -21,7 +21,7 @@ let commentStart = ref Position.Empty;
 let commentDepth = ref 0;  (* Current comment nesting *)
 
 (* Distinguish keywords from identifiers: *)
-(* Keyword fun added, and arrow (->) added as token, as part of exercise 6.2 *)
+(* Keyword fun added, and arrow (->) added as token, as part of exercise 6.3 *)
 
 let keyword s =
     match s with
