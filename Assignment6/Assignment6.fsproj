@@ -35,8 +35,11 @@
         <ClCompile Include="MicroCCode\ex25.c" />
         <ClCompile Include="MicroCCode\machine.c" />
         <ClCompile Include="MicroCCode\exercise7_2_i.c" />
+        <ClCompile Include="MicroCCode\exercise7_3_i.c" />
         <ClCompile Include="MicroCCode\exercise7_2_ii.c" />
+        <ClCompile Include="MicroCCode\exercise7_3_ii.c" />
         <ClCompile Include="MicroCCode\exercise7_2_iii.c" />
+        <ClCompile Include="MicroCCode\exercise7_3_iii.c" />
         <Compile Include="Absyn.fs" />
         <Compile Include="CPar.fs" />
         <Content Include="CPar.fsy" />
