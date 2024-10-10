@@ -64,7 +64,7 @@ slowTypeInferenceExample()
 inferType (fromString "let f x = 1 in f f end");;
 
 // Type could not be inferred
-// f is expecting an argument but gets none?
+// f is expecting an argument but gets none, therefore type cannot be inferred, since we don't know the type of g
 inferType (fromString "let f g = g g in f end");;
 
 // Type is 'bool'
@@ -74,7 +74,9 @@ inferType (fromString "
                 in g false end
            in f 42 end");;
 
-// Type could not be inferred - why? 
+// Type could not be inferred
+// g needs to return either y or x, and since y=false and x=42 these are different types which means that
+// we cannot infer the type of the function, since it can return a boolean or an int which is not legal
 inferType (fromString "
            let f x =
                 let g y = if true then y else x
@@ -110,15 +112,24 @@ inferType (fromString "
                 in g end
            in f end");;
 
-
+// ’a -> ’b -> ’b
 inferType (fromString "
            let f x =
                 let g y = y
                 in g end
            in f end");;
 
-inferType (fromString "let f = 42 in f end");;
+// (’a -> ’b) -> (’b -> ’c) -> (’a -> ’c)
+inferType (fromString
+               "let f x = let g y = let h z = y (x z) in h end in g end in f end");;        
 
+// ’a -> ’b
+inferType (fromString "
+           let f x =
+                let g = f x
+                in g end
+           in f end");;
 
-
-
+// ’a
+inferType (fromString
+               "let f x = f x in f 1 end");;
