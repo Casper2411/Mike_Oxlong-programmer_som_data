@@ -16,8 +16,8 @@ A. Generating and compiling the lexer and parser for micro-C, and
 
    open ParseAndRun;;
    fromFile "ex1.c";;
-   run (fromFile "ex1.c") [17];;
-   run (fromFile "ex11.c") [8];;
+   run (fromFile "./MicroCCode/ex1.c") [17];;
+   run (fromFile "./MicroCCode/ex11.c") [8];;
 
 
 B. To compile and use the micro-C compiler
@@ -27,7 +27,7 @@ B. To compile and use the micro-C compiler
    fsharpi -r FsLexYacc.Runtime.dll Absyn.fs CPar.fs CLex.fs Parse.fs Machine.fs Comp.fs ParseAndComp.fs   
 
    open ParseAndComp;;
-   compileToFile (fromFile "ex11.c") "ex11.out";;
+   compileToFile (fromFile "./MicroCCode/ex11.c") "ex11.out";;
    #q;;
 
    javac Machine.java
@@ -41,7 +41,7 @@ C. To compile and use the backwards (continuation-based) micro-C compiler:
    fsharpi -r FsLexYacc.Runtime.dll Absyn.fs CPar.fs CLex.fs Parse.fs Machine.fs Contcomp.fs ParseAndContcomp.fs   
 
    open ParseAndContcomp;;
-   contCompileToFile (fromFile "ex11.c") "ex11.out";;
+   contCompileToFile (fromFile "./MicroCCode/ex11.c") "ex11.out";;
    #q;;
 
    javac Machine.java
@@ -54,9 +54,9 @@ D. Build the backwards micro-C compiler as a command-line program microcc
    fsyacc --module CPar CPar.fsy
    fsharpc -r FsLexYacc.Runtime.dll Absyn.fs CPar.fs CLex.fs Parse.fs Machine.fs Contcomp.fs MicroCC.fs -o microcc.exe
 
-   microcc.exe ex11.c
+   microcc.exe ./MicroCCode/ex11.c
 or
-   mono microcc.exe ex11.c
+   mono microcc.exe ./MicroCCode/ex11.c
 
    javac Machine.java
    java Machine ex11.out 8
