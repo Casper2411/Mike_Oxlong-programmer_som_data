@@ -6,3 +6,5 @@ MikeOxlong-programmer-som-data/bin/
 */obj
 */bin
 *.user
+*.out
+*.class
