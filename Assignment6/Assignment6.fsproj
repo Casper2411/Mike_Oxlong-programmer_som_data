@@ -34,6 +34,9 @@
         <ClCompile Include="MicroCCode\ex24.c" />
         <ClCompile Include="MicroCCode\ex25.c" />
         <ClCompile Include="MicroCCode\machine.c" />
+        <ClCompile Include="MicroCCode\exercise7_2_i.c" />
+        <ClCompile Include="MicroCCode\exercise7_2_ii.c" />
+        <ClCompile Include="MicroCCode\exercise7_2_iii.c" />
         <Compile Include="Absyn.fs" />
         <Compile Include="CPar.fs" />
         <Content Include="CPar.fsy" />
@@ -54,6 +57,7 @@
         <Content Include="Progs\prog0" />
         <Content Include="Progs\prog1" />
         <Content Include="HowToRun.md" />
+        <Content Include="Exercise7_1.png" />
     </ItemGroup>
 
     <ItemGroup>
