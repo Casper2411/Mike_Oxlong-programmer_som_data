@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ClCompile Include="MicroCCode\ex1.c" />
+        <ClCompile Include="MicroCCode\ex2.c" />
+        <ClCompile Include="MicroCCode\ex3.c" />
+        <ClCompile Include="MicroCCode\ex4.c" />
+        <ClCompile Include="MicroCCode\ex5.c" />
+        <ClCompile Include="MicroCCode\ex6.c" />
+        <ClCompile Include="MicroCCode\ex7.c" />
+        <ClCompile Include="MicroCCode\ex8.c" />
+        <ClCompile Include="MicroCCode\ex9.c" />
+        <ClCompile Include="MicroCCode\ex10.c" />
+        <ClCompile Include="MicroCCode\ex11.c" />
+        <ClCompile Include="MicroCCode\ex11count.c" />
+        <ClCompile Include="MicroCCode\ex12.c" />
+        <ClCompile Include="MicroCCode\ex13.c" />
+        <ClCompile Include="MicroCCode\ex14.c" />
+        <ClCompile Include="MicroCCode\ex15.c" />
+        <ClCompile Include="MicroCCode\ex16.c" />
+        <ClCompile Include="MicroCCode\ex17.c" />
+        <ClCompile Include="MicroCCode\ex18.c" />
+        <ClCompile Include="MicroCCode\ex19.c" />
+        <ClCompile Include="MicroCCode\ex20.c" />
+        <ClCompile Include="MicroCCode\ex21.c" />
+        <ClCompile Include="MicroCCode\ex22.c" />
+        <ClCompile Include="MicroCCode\ex23.c" />
+        <ClCompile Include="MicroCCode\ex24.c" />
+        <ClCompile Include="MicroCCode\ex25.c" />
+        <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
+        <Content Include="Progs\prog0" />
+        <Content Include="Progs\prog1" />
+        <Compile Include="Absyn.fs" />
+        <ClCompile Include="machine.c" />
+        <Content Include="Machine.java" />
+        <Content Include="CPar.fsy" />
+        <Content Include="CLex.fsl" />
+        <Compile Include="Machine.fs" />
+        <Compile Include="Contcomp.fs" />
+        <Compile Include="MicroCC.fs" />
+        <Compile Include="Interp.fs" />
+        <Compile Include="Comp.fs" />
+        <Compile Include="CPar.fsi" />
+        <Compile Include="CPar.fs" />
+        <Compile Include="CLex.fsi" />
+        <Compile Include="CLex.fs" />
+        <Content Include="grammar.txt" />
+        <Content Include="README.TXT" />
+        <Compile Include="Parse.fs" />
+        <Compile Include="ParseAndRun.fs" />
+        <Compile Include="ParseAndContcomp.fs" />
+        <Compile Include="ParseAndComp.fs" />
+        <Content Include="HowToRun.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FsLexYacc" Version="11.3.0" />
+      <PackageReference Include="FsLexYacc.Runtime" Version="11.3.0" />
+    </ItemGroup>
+
+</Project>
