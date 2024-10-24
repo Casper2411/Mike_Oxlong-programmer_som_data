@@ -32,6 +32,7 @@
         <ClCompile Include="MicroCCode\ex23.c" />
         <ClCompile Include="MicroCCode\ex24.c" />
         <ClCompile Include="MicroCCode\ex25.c" />
+        <ClCompile Include="MicroCCode\ex8_3.c" />
         <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
         <Content Include="Progs\prog0" />
         <Content Include="Progs\prog1" />
