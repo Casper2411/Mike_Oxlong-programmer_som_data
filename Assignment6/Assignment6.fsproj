@@ -40,6 +40,7 @@
         <ClCompile Include="MicroCCode\exercise7_3_ii.c" />
         <ClCompile Include="MicroCCode\exercise7_2_iii.c" />
         <ClCompile Include="MicroCCode\exercise7_3_iii.c" />
+        <ClCompile Include="MicroCCode\ex7_4.c" />
         <Compile Include="Absyn.fs" />
         <Compile Include="CPar.fs" />
         <Content Include="CPar.fsy" />
