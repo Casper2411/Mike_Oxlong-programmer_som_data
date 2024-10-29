@@ -28,8 +28,8 @@ type token =
   | MOD
   | PREINC
   | PREDEC
-  | TERN1
-  | TERN2
+  | QMARK
+  | COLON
   | CHAR
   | ELSE
   | IF
@@ -40,6 +40,8 @@ type token =
   | RETURN
   | VOID
   | WHILE
+  | SWITCH
+  | CASE
   | CSTSTRING of (string)
   | NAME of (string)
   | CSTINT of (int)
@@ -72,8 +74,8 @@ type tokenId =
     | TOKEN_MOD
     | TOKEN_PREINC
     | TOKEN_PREDEC
-    | TOKEN_TERN1
-    | TOKEN_TERN2
+    | TOKEN_QMARK
+    | TOKEN_COLON
     | TOKEN_CHAR
     | TOKEN_ELSE
     | TOKEN_IF
@@ -84,6 +86,8 @@ type tokenId =
     | TOKEN_RETURN
     | TOKEN_VOID
     | TOKEN_WHILE
+    | TOKEN_SWITCH
+    | TOKEN_CASE
     | TOKEN_CSTSTRING
     | TOKEN_NAME
     | TOKEN_CSTINT
@@ -104,6 +108,7 @@ type nonTerminalId =
     | NONTERM_StmtOrDecSeq
     | NONTERM_Stmt
     | NONTERM_StmtM
+    | NONTERM_SStmt
     | NONTERM_StmtU
     | NONTERM_Expr
     | NONTERM_ExprNotAccess

@@ -58,6 +58,7 @@
         <Compile Include="ParseAndContcomp.fs" />
         <Compile Include="ParseAndComp.fs" />
         <Content Include="HowToRun.md" />
+        <ClCompile Include="test.c" />
     </ItemGroup>
 
     <ItemGroup>
