@@ -197,10 +197,12 @@ and eval e locEnv gloEnv store : int * store =
     // Exercise 7.4
     | PreInc acc ->
         let loc, store1 = access acc locEnv gloEnv store
-        (loc+1,store1)
+        let res = getSto store1 loc;
+        (res+1,setSto store1 loc (res+1))
     | PreDec acc ->
         let loc, store1 = access acc locEnv gloEnv store
-        (loc-1,store1)
+        let res = getSto store1 loc;
+        (res-1,setSto store1 loc (res-1))
 
 and access acc locEnv gloEnv store : int * store = 
     match acc with 

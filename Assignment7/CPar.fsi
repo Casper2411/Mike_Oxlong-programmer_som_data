@@ -28,6 +28,8 @@ type token =
   | MOD
   | PREINC
   | PREDEC
+  | TERN1
+  | TERN2
   | CHAR
   | ELSE
   | IF
@@ -70,6 +72,8 @@ type tokenId =
     | TOKEN_MOD
     | TOKEN_PREINC
     | TOKEN_PREDEC
+    | TOKEN_TERN1
+    | TOKEN_TERN2
     | TOKEN_CHAR
     | TOKEN_ELSE
     | TOKEN_IF
