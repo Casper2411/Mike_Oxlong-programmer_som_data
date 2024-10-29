@@ -107,8 +107,8 @@ StmtM:  /* No unbalanced if-else */
 ;
 
 SStmt:
-    CASE Const COLON Block SStmt        { ($2, $4)::$5         }
-    | CASE Const COLON Block            { [$2, $4]             }
+                                        { []                   }
+    | CASE Const COLON Block SStmt      { ($2, $4)::$5         }
 ;
 
 StmtU:
