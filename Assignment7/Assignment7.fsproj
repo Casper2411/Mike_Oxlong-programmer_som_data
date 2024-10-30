@@ -37,12 +37,12 @@
         <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
         <Content Include="Progs\prog0" />
         <Content Include="Progs\prog1" />
+        <Compile Include="Machine.fs" />
         <Compile Include="Absyn.fs" />
         <ClCompile Include="machine.c" />
         <Content Include="Machine.java" />
         <Content Include="CPar.fsy" />
         <Content Include="CLex.fsl" />
-        <Compile Include="Machine.fs" />
         <Compile Include="Contcomp.fs" />
         <Compile Include="MicroCC.fs" />
         <Compile Include="Interp.fs" />
@@ -59,6 +59,7 @@
         <Compile Include="ParseAndComp.fs" />
         <Content Include="HowToRun.md" />
         <ClCompile Include="test.c" />
+        <Content Include="exercise8-1.md" />
     </ItemGroup>
 
     <ItemGroup>
