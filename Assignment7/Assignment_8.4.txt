@@ -1,0 +1,3 @@
+We have seen that this code generates a label for each modulus statement 
+and the for loop and "&& or ||" also generates a label.
+So this is what we have observed.
