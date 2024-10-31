@@ -60,6 +60,7 @@
         <Content Include="HowToRun.md" />
         <ClCompile Include="test.c" />
         <Content Include="exercise8-1.md" />
+        <Content Include="ex3.txt" />
     </ItemGroup>
 
     <ItemGroup>
