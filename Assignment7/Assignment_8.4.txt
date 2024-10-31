@@ -1,3 +1,7 @@
+prog1, is much faster then ex8.c, because it doesn't jump as much, and also doesn't use any variables, 
+only the top of the stack.
+
+
 We have seen that this code generates a label for each modulus statement 
 and the for loop and "&& or ||" also generates a label.
 So this is what we have observed.
