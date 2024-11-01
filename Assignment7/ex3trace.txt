@@ -45,7 +45,7 @@
 [ 4 -999 4 1 1 2 0 ]{51: ADD}
 [ 4 -999 4 1 1 2 ]{52: LDI}
 [ 4 -999 4 1 1 4 ]{53: LT}
-[ 4 -999 4 1 1 ]{54: IFNZRO 18}        //the statement from before is still true, therefore it loops back to line 18, and does the instructions from line 21.
+[ 4 -999 4 1 1 ]{54: IFNZRO 18}        //the statement from before is still true, therefore it loops back to line 18, and does the instructions from line 21 of this file.
 [ 4 -999 4 1 ]{18: GETBP}
 [ 4 -999 4 1 2 ]{19: CSTI 1}
 [ 4 -999 4 1 2 1 ]{21: ADD}
@@ -73,7 +73,7 @@
 [ 4 -999 4 2 2 2 0 ]{51: ADD}
 [ 4 -999 4 2 2 2 ]{52: LDI}
 [ 4 -999 4 2 2 4 ]{53: LT}
-[ 4 -999 4 2 1 ]{54: IFNZRO 18}         //the statement from before is still true, therefore it loops back to line 18, and does the instructions from line 21.
+[ 4 -999 4 2 1 ]{54: IFNZRO 18}         //the statement from before is still true, therefore it loops back to line 18, and does the instructions from line 21 of this file.
 [ 4 -999 4 2 ]{18: GETBP}
 [ 4 -999 4 2 2 ]{19: CSTI 1}
 [ 4 -999 4 2 2 1 ]{21: ADD}
@@ -101,7 +101,7 @@
 [ 4 -999 4 3 3 2 0 ]{51: ADD}
 [ 4 -999 4 3 3 2 ]{52: LDI}
 [ 4 -999 4 3 3 4 ]{53: LT}
-[ 4 -999 4 3 1 ]{54: IFNZRO 18}             //the statement from before is still true, therefore it loops back to line 18, and does the instructions from line 21.
+[ 4 -999 4 3 1 ]{54: IFNZRO 18}             //the statement from before is still true, therefore it loops back to line 18, and does the instructions from line 21 of this file.
 [ 4 -999 4 3 ]{18: GETBP}
 [ 4 -999 4 3 2 ]{19: CSTI 1}
 [ 4 -999 4 3 2 1 ]{21: ADD}
