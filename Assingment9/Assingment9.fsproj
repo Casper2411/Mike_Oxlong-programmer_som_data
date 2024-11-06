@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Absyn.fs" />
+        <Compile Include="CPar.fs" />
+        <Content Include="CPar.fsy" />
+        <Compile Include="CLex.fs" />
+        <Content Include="CLex.fsl" />
+        <Compile Include="Machine.fs" />
+        <Compile Include="Comp.fs" />
+        <Compile Include="Parse.fs" />
+        <Compile Include="ListCC.fs" />
+        <ClCompile Include="listmachine.c" />
+        <Compile Include="ParseAndComp.fs" />
+        <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
+        <Content Include="prog0" />
+        <Content Include="prog1" />
+        <Content Include="README.md" />
+        <Content Include="LCProgs\ex11.out" />
+        <Content Include="LCProgs\ex30.lc" />
+        <Content Include="LCProgs\ex30.out" />
+        <Content Include="LCProgs\ex31.lc" />
+        <Content Include="LCProgs\ex31.out" />
+        <Content Include="LCProgs\ex32.lc" />
+        <Content Include="LCProgs\ex32.out" />
+        <Content Include="LCProgs\ex33.lc" />
+        <Content Include="LCProgs\ex33.out" />
+        <Content Include="LCProgs\ex34.lc" />
+        <Content Include="LCProgs\ex34.out" />
+        <Content Include="LCProgs\ex35.lc" />
+        <Content Include="LCProgs\ex35.out" />
+        <Content Include="LCProgs\ex36.lc" />
+        <Content Include="LCProgs\ex36.out" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FsLexYacc" Version="11.3.0" />
+      <PackageReference Include="FsLexYacc.Runtime" Version="11.3.0" />
+    </ItemGroup>
+
+</Project>
