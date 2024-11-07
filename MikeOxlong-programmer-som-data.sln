@@ -12,9 +12,9 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Assignment6", "Assignment6\
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Assignment7", "Assignment7\Assignment7.fsproj", "{3C4886B3-2D7B-4F53-8D18-468AF94D1099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assingment8", "Assingment8\Assingment8.csproj", "{FE90D62A-07F1-4277-829B-D25DF0CC3812}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment8", "Assignment8\Assignment8.csproj", "{FE90D62A-07F1-4277-829B-D25DF0CC3812}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Assingment9", "Assingment9\Assingment9.fsproj", "{58A2245C-FA16-4D21-8F8F-E6CF40689EB6}"
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Assignment9", "Assignment9\Assignment9.fsproj", "{58A2245C-FA16-4D21-8F8F-E6CF40689EB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
