@@ -30,11 +30,11 @@ mono listcc.exe ./LCProgs/ex30.lc
 Compiling the list machine, and using it to execute the code in ex30.out:
 
 ```bash
-gcc -Wall listmachine.c -o listmachine
+gcc -Wall ./ListVM/ListVM/listmachine.c -o listmachine
 ```
 or, if necessary, force gcc to use 32 bit integers:
 ```bash
-gcc -m32 -Wall listmachine.c -o listmachine
+gcc -m32 -Wall ./ListVM/ListVM/listmachine.c -o listmachine
 ```
 ```bash
 ./listmachine ./LCProgs/ex30.out 8
