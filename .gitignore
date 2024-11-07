@@ -3,8 +3,9 @@ MikeOxlong-programmer-som-data/obj/
 MikeOxlong-programmer-som-data/bin/
 /.config
 *.cache
-*/obj
-*/bin
+obj
+bin
 *.user
 *.out
 *.class
+Assignment8/out/production/Assignment8/obj/Assignment8.csproj.nuget.g.props

@@ -1,0 +1,49 @@
+
+public static void SelectionSort(int[]);
+  Code:
+   Stack=4, Locals=4, Args_size=1
+   0:	iconst_0                    // 0
+   1:	istore_1                    // i = 0
+   2:	iload_1                     // i 
+   3:	aload_0                     // arr
+   4:	arraylength                 // arr.Length
+   5:	if_icmpge	57              // if i >= arr.Length goto 57
+   8:	iload_1                     // i
+   9:	istore_2                    // least = i
+   10:	iload_1                     // i
+   11:	iconst_1                    // 1
+   12:	iadd                        // i+1
+   13:	istore_3                    // j = i+1
+   14:	iload_3                     // j
+   15:	aload_0                     // arr
+   16:	arraylength                 // arr.Length
+   17:	if_icmpge	37              // if j >= arr.Length goto 37
+   20:	aload_0                     // arr
+   21:	iload_3                     // j
+   22:	iaload                      // arr[j]
+   23:	aload_0                     // arr
+   24:	iload_2                     // least
+   25:	iaload                      // arr[least]
+   26:	if_icmpge	31              // if arr[j] >= arr[least] goto 31
+   29:	iload_3                     // j
+   30:	istore_2                    // least = j
+   31:	iinc	3, 1                // j++;
+   34:	goto	14
+   37:	aload_0                     // arr
+   38:	iload_1                     // i
+   39:	iaload                      // arr[i]
+   40:	istore_3                    // j = arr[i] (j = tmp, it is overloaded since it is no longer in use)
+   41:	aload_0                     // arr
+   42:	iload_1                     // i
+   43:	aload_0                     // arr
+   44:	iload_2                     // least
+   45:	iaload                      // arr[least]
+   46:	iastore                     // arr[i] = arr[least]
+   47:	aload_0                     // arr
+   48:	iload_2                     // least
+   49:	iload_3                     // j
+   50:	iastore                     // arr[least] = j
+   51:	iinc	1, 1                // i++;
+   54:	goto	2
+   57:	return
+

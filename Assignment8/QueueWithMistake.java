@@ -86,13 +86,15 @@ class SentinelLockQueue implements Queue {
     }
   }
 
-  private final Node dummy = new Node(-444, null);
-  private Node head = dummy, tail = dummy;
+  // The reference to dummy is never lost by tail, this means that dummy will always refer til all enqueued values.
+  // We can resolve this by removing the reference and just set head and tail to null.
+  private Node head, tail;
   
   public synchronized boolean put(int item) {
     Node node = new Node(item, null);
-    tail.next = node;
-    tail = node;
+    // set head and tail if no values are enqueued.
+    if (head == null) head = tail = node;
+    else tail = tail.next = node;
     return true;
   }
 
@@ -101,12 +103,12 @@ class SentinelLockQueue implements Queue {
       return -999;
     Node first = head;
     head = first.next;
-    return head.item;
+      return head.item;
   }
 }
 
 // Crude timing utility ----------------------------------------
-   
+
 class Timer {
   private long start, spent = 0;
   public Timer() { Play(); }
