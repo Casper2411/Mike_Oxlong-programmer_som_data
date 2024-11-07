@@ -37,6 +37,16 @@
         <Content Include="LCProgs\ex35.out" />
         <Content Include="LCProgs\ex36.lc" />
         <Content Include="LCProgs\ex36.out" />
+        <Content Include="ListVM\.vs\ListVM\v14\.suo" />
+        <ClCompile Include="ListVM\ListVM\utils_unix.c" />
+        <ClCompile Include="ListVM\ListVM\utils_win.c" />
+        <Content Include="ListVM\ListVM\ListVM.vcxproj.user" />
+        <Content Include="ListVM\ListVM\ListVM.vcxproj" />
+        <Content Include="ListVM\ListVM\ListVM.vcxproj.filters" />
+        <Content Include="ListVM\ListVM\listmachine" />
+        <ClCompile Include="ListVM\ListVM\listmachine.c" />
+        <Content Include="ListVM\ListVM.sln" />
+        <Content Include="ListVM\ListVM.VC.db" />
     </ItemGroup>
 
     <ItemGroup>
