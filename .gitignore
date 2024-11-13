@@ -9,3 +9,11 @@ bin
 *.out
 *.class
 Assignment8/out/production/Assignment8/obj/Assignment8.csproj.nuget.g.props
+Assignment9/ListVM/ListVM/listmachine.dSYM/Contents/Resources/DWARF/listmachine
+*/obj
+*/bin
+Assignment9/listmachine
+Assignment9/listcc.exe
+Assignment9/ListVM/ListVM/listmachine
+/Assignment9/.vscode
+/Assignment9/ListVM/ListVM/listmachine.dSYM

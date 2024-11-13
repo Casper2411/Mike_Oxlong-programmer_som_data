@@ -153,7 +153,7 @@ word* readfile(char* filename);
 
 // Heap size in words
 
-#define HEAPSIZE 100
+#define HEAPSIZE 1000
 
 word* heap;
 word* afterHeap;
@@ -436,8 +436,8 @@ void heapStatistics() {
       orphans++;
     word* nextBlock = heapPtr + Length(heapPtr[0]) + 1;
     if (nextBlock > afterHeap) {
-      printf("HEAP ERROR: block at heap[" WORD_FMT "] extends beyond heap\n",
-	     (word)(heapPtr - heap));
+      printf("HEAP ERROR: block at heap[" WORD_FMT "] extends beyond heap with len %zu\n",
+	     (word)(heapPtr - heap), (Length(heapPtr[0])+1));
       exit(-1);
     }
     heapPtr = nextBlock;
@@ -468,6 +468,7 @@ void initheap() {
   heap[0] = mkheader(0, HEAPSIZE - 1, Blue);
   heap[1] = (word)0;
   freelist = &heap[0];
+  heapStatistics();
 }
 
 void printColor(word header){
@@ -500,7 +501,7 @@ void recurseMark(word curr){
     word header = ref[0];
     if (Color(header) == White){
       unsigned int len = Length(header);
-      *ref = mkheader(Tag(header), len, Black);
+      *ref = Paint(header, Black);
       for (unsigned int i = 1; i<=len; i++){
           recurseMark(ref[i]);
       }
@@ -514,32 +515,49 @@ void markPhase(word s[], word sp) {
   }
 }
 
-void sweepPhase() {
+unsigned long consolidate(word *ptr, unsigned long currLen){
+  word *next = ptr+currLen+1;
+
+  if (!inHeap(next)) return currLen;
+
+  word nextHeader = next[0];
+
+  if (Color(nextHeader) == White) 
+    return consolidate(ptr, currLen+(Length(nextHeader))+1);
+
+  return currLen;
+}
+
+void sweepPhase(void) {
     word *curr = heap;
     freelist = NULL;
+    unsigned long len;
 
     while (curr < afterHeap) {
         word header = curr[0];
+        len = Length(header);
         switch (Color(header))
         {
           case White:
-            curr[0] = Paint(header, Blue);
+            len = consolidate(curr, len);
+            //printf("len: %zu\n", len);
+            curr[0] = mkheader(0, len, Blue);
             curr[1] = (word)freelist;
             freelist = curr;
             break;
           case Black:
             curr[0] = Paint(header, White);
         }
-        curr += Length(header) + 1;
+        curr += len+1;
     }
 }
 
 
 void collect(word s[], word sp) {
   markPhase(s, sp);
-  //heapStatistics();
+  heapStatistics();
   sweepPhase();
-  //heapStatistics();
+  heapStatistics();
 }
 
 word* allocate(unsigned int tag, uword length, word s[], word sp) {
