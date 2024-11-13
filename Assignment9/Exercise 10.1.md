@@ -27,7 +27,4 @@ This command gives the 1 word of a reference to a block on the stack. It does th
 Sets the first word of the block. It does this by first accessing the value of the top of the stack, and saving it as v, and then efter decrementing the sp value by one. Then the Block is accesed by getting the `s[sp]` value, and saving it to p.
 After this `p[1]`, i.e. the first word of the block, is set to the value of v. Then it breaks.
 
-## (ii)
-
-
-## (iii)
+### Exercise 10.2 & 10.3 is in ListVM/ListVM/listmachine.c
