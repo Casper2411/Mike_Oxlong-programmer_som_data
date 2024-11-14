@@ -1,7 +1,5 @@
 module Assignment10.Exercises
 
-open Contfun
-open Contimp
 open Icon
 
 // ex 11.1
@@ -62,10 +60,19 @@ let rec prodi xs acc =
     | x::xr -> prodi xr (x*acc)
 
 
-// ex 11.8
+// ex 11.8 i
 let ex118i1 = Every(Write(Prim("+", Prim("*", CstI 2, FromTo(1, 4)), CstI 1)))
-//let ex118i2 = Prim("+", Prim("*", CstI 10, FromTo(2, 4)), CstI 1)
 let ex118i2 = Every(Write(Prim("+", Prim("*", CstI 10, FromTo(2, 4)), FromTo(1, 2))))
 
+// ex 11.8 ii
+let ex118ii = Write(Prim("<", CstI 50, Prim("*", CstI 7, FromTo(1, 100))))
 
+// ex 11.8 iii
+let ex118iiiSqr = Every(Write(Prim1("sqr", FromTo(3, 6))))
+let ex118iiiEven = Every(Write(Prim1("even", FromTo(1, 7))))
+
+
+// ex 11.8 iv
+let ex118iv = Write(Multiples(CstI 3))
+let ex118iv2 = Write(Multiples(FromTo(3, 5)))
 

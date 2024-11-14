@@ -31,6 +31,8 @@ type expr =
   | Write of expr
   | If of expr * expr * expr
   | Prim of string * expr * expr 
+  | Prim1 of string * expr
+  | Multiples of expr
   | And of expr * expr
   | Or  of expr * expr
   | Seq of expr * expr
@@ -99,6 +101,25 @@ let rec eval (e : expr) (cont : cont) (econt : econt) =
       eval e (fun _ -> fun econt1 -> econt1 ())
              (fun () -> cont (Int 0) econt)
     | Fail -> econt ()
+    // Exercise 11.8 iii
+    | Prim1(op, e) ->
+        eval e (fun v1 -> fun econt1 ->
+            match op, v1 with
+            | "sqr", Int i -> cont (Int(i*i)) econt1
+            | "even", Int i ->
+                if i % 2 = 0 then
+                    cont v1 econt1
+                else
+                    econt1()
+            | _ -> Str "unknown prim1") econt
+    // Exercise 11.8 iv
+    | Multiples expr ->
+        let rec loop i j =
+            cont (Int (i*j)) (fun () -> loop (i+1) j)
+        eval expr (fun v -> fun err ->
+            match v with
+            | Int i -> loop 1 i
+            | _ -> Str "Value of multiple cannot be string!") econt
 
 let run e = eval e (fun v -> fun _ -> v) (fun () -> (printfn "Failed"; Int 0));
 

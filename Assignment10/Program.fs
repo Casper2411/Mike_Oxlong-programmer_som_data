@@ -26,8 +26,23 @@ printfn "%A" (prodco [2; 5; 7; 0] id)
 printfn "%A" (prodi [2; 5; 7; 0] 1)
 
 printfn ""
-printfn "Exercise 11.8"
+printfn "Exercise 11.8 i"
 run ex118i1
 printfn ""
 run ex118i2
-//run ex9
+
+printfn ""
+printfn "Exercise 11.8 ii"
+run ex118ii
+
+printfn ""
+printfn "Exercise 11.8 iii"
+run ex118iiiSqr
+printfn ""
+run ex118iiiEven
+
+printfn ""
+printfn "Exercise 11.8 iv"
+run ex118iv
+printfn ""
+run ex118iv2
