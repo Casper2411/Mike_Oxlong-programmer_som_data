@@ -9,6 +9,7 @@
         <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
         <ClCompile Include="MicroCCode\machine.c" />
         <Compile Include="MicroC\Absyn.fs" />
+        <Compile Include="MicroC\Util.fs" />
         <Compile Include="MicroC\CPar.fs" />
         <Content Include="MicroC\CPar.fsy" />
         <Compile Include="MicroC\CLex.fs" />
@@ -28,6 +29,7 @@
         <Content Include="MicroC\Progs\prog0" />
         <Content Include="MicroC\Progs\prog1" />
         <ClCompile Include="MicroC\ex16.c" />
+        <ClCompile Include="MicroC\ex2.c" />
         <Content Include="HowToRun.md" />
     </ItemGroup>
 
