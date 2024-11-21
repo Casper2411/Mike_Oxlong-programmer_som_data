@@ -11,8 +11,6 @@
 
 module Machine
 
-open Util
-
 type label = string
 
 type instr =

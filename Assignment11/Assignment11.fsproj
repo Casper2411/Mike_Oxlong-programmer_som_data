@@ -27,6 +27,8 @@
         <Content Include="MicroC\README.TXT" />
         <Content Include="MicroC\Progs\prog0" />
         <Content Include="MicroC\Progs\prog1" />
+        <ClCompile Include="MicroC\ex16.c" />
+        <Content Include="HowToRun.md" />
     </ItemGroup>
 
     <ItemGroup>
