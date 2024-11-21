@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
+        <ClCompile Include="MicroCCode\machine.c" />
+        <Compile Include="MicroC\Absyn.fs" />
+        <Compile Include="MicroC\CPar.fs" />
+        <Content Include="MicroC\CPar.fsy" />
+        <Compile Include="MicroC\CLex.fs" />
+        <Content Include="MicroC\CLex.fsl" />
+        <Compile Include="MicroC\Machine.fs" />
+        <Compile Include="MicroC\Comp.fs" />
+        <Compile Include="MicroC\Contcomp.fs" />
+        <Content Include="MicroC\grammar.txt" />
+        <Compile Include="MicroC\Interp.fs" />
+        <Content Include="MicroC\Machine.java" />
+        <Compile Include="MicroC\Parse.fs" />
+        <Compile Include="MicroC\MicroCC.fs" />
+        <Compile Include="MicroC\ParseAndComp.fs" />
+        <Compile Include="MicroC\ParseAndContcomp.fs" />
+        <Compile Include="MicroC\ParseAndRun.fs" />
+        <Content Include="MicroC\README.TXT" />
+        <Content Include="MicroC\Progs\prog0" />
+        <Content Include="MicroC\Progs\prog1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FsLexYacc" Version="11.3.0" />
+        <PackageReference Include="FsLexYacc.Runtime" Version="11.3.0" />
+    </ItemGroup>
+
+</Project>
