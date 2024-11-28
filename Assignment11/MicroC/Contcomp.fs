@@ -37,7 +37,8 @@ type bstmtordec =
 // Exercise 12.1
 let rec addIFZERO lab3 C : instr list =
     match C with
-    | GOTO lab2 :: C1 -> IFNZRO lab2 :: C1  
+    | GOTO lab2 :: C1 -> IFNZRO lab2 :: C1
+    | _ -> IFZERO lab3 :: C
 
 let rec addINCSP m1 C : instr list =
     match C with
@@ -106,8 +107,14 @@ let rec addCST i C =
     | (_, IFZERO lab :: C1) -> C1
     | (0, IFNZRO lab :: C1) -> C1
     | (_, IFNZRO lab :: C1) -> addGOTO lab C1
-    | _                     -> CSTI i :: C
-            
+    //Exercise 12.2
+    | (_, CSTI num2 :: LT :: C1) -> if i < num2 then addCST 1 C1 else addCST 0 C1
+    | (_, CSTI num2 :: SWAP :: LT :: NOT :: C1) -> if i <= num2 then addCST 1 C1 else addCST 0 C1
+    | (_, CSTI num2 :: EQ :: NOT :: C1) -> if i <> num2 then addCST 1 C1 else addCST 0 C1
+    | (_, CSTI num2 :: SWAP :: LT :: C1) -> if i > num2 then addCST 1 C1 else addCST 0 C1
+    | (_, CSTI num2 :: LT :: NOT :: C1) -> if i >= num2 then addCST 1 C1 else addCST 0 C1
+    | _ -> CSTI i :: C
+
 (* ------------------------------------------------------------------- *)
 
 (* Simple environment operations *)
