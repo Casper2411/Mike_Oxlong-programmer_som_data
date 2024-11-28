@@ -43,7 +43,7 @@
         <Compile Include="MicroSMLC.fs" />
         <ClCompile Include="msmlmachine.c" />
         <None Include="queens.fsx" />
-        <Content Include="README.TXT" />
+        <Content Include="README.md" />
         <Content Include="FsLexYacc\FsLexYacc.Runtime.dll" />
     </ItemGroup>
 
