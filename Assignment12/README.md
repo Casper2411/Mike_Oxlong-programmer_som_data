@@ -7,7 +7,7 @@ A. Building the micro-SML command line compiler microsmlc:
 ```bash
 fslex --unicode FunLex.fsl && \
   fsyacc --module FunPar FunPar.fsy && \
-  fsharpc -r ./FsLexYacc/FsLexYacc.Runtime.dll Absyn.fs FunPar.fs FunLex.fs TypeInference.fs HigherFun.fs Machine.fs Contcomp.fs ParseTypeAndRun.fs MicroSMLC.fs -o microsmlc.exe
+  fsharpc -r ./FsLexYacc/FsLexYacc.Runtime.dll Absyn.fs FunPar.fs FunLex.fs TypeInference.fs HigherFun.fs Machine.fs Comp.fs Contcomp.fs ParseTypeAndRun.fs MicroSMLC.fs -o microsmlc.exe
 ```
    
 Compiling the test program test.sml:
