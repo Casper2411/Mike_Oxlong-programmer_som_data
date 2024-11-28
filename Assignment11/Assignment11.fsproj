@@ -28,6 +28,8 @@
         <Content Include="MicroC\Progs\prog0" />
         <Content Include="MicroC\Progs\prog1" />
         <ClCompile Include="MicroC\ex16.c" />
+        <Compile Include="MicroC\test.c.fs" />
+        <ClCompile Include="MicroC\test.c" />
         <Content Include="HowToRun.md" />
     </ItemGroup>
 
